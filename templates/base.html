@@ -1,0 +1,455 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arch biddings</title>
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="{% static 'dist/css/style1.css' %}">
+        <link rel="stylesheet" href="{% static 'dist/css/style33.css' %}">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+
+        <!-- w3 css -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <!-- google apis -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+ 
+
+</head>
+<body>
+{% block head %}
+<nav class="main-header navbar navbar-expand navbar-light navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
+              class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="{% url 'main:home' %}" class="nav-link"><i class="fa fa-home"></i></a>
+        </li>
+        
+
+       
+      </ul>
+
+
+  
+      <!-- Right navbar links -->
+      <ul class="navbar-nav">
+        <!-- Notifications Dropdown Menu -->
+         <li class="nav-item d-none d-sm-inline-block">
+            
+            <a href="#howitworks" class="nav-link"><i class=""></i>HOW IT WORKS</a>
+        </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            
+            <a href="#about" class="nav-link"><i class=""></i>ABOUT US</a>
+        </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            
+            <a href="services" class="nav-link"><i class=""></i>SERVICES</a>
+        </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            
+            <a href="contact" class="nav-link"><i class=""></i>CONTACT</a>
+        </li>       
+
+                
+                {% if user.is_authenticated %}
+       
+        <li class="nav-item d-none d-sm-inline-block"><a class=nav-link href="{% url 'user:logout'%}">logout</a></li>
+
+                {% else %}
+        <li class="nav-item d-none d-sm-inline-block"><a class="nav-link" href="{% url 'user:login'%}">login</a></li>
+                <li class="nav-item d-none d-sm-inline-block" ><a class="nav-link" href="{% url 'user:register'%}">SignUp</a></li>
+                {% endif %}
+        <p class="nav-link">welcome{{user}}</p>
+               
+            </ul>
+            </nav>
+            
+ 
+    {% endblock head %}
+    {% block info %}
+    <div class="banner">
+    <div class="content" id="home" #home>
+        <h1>The  <b style="color: #da6b1d;">Best</b> Place <br> To <b style="color: #da6b1d;">POST </b> & <b style="color: #da6b1d;">JOIN</b></h1>
+        <p>We bring close to you all your favourite contest. <br><br> We are only a click away!</p>
+        
+        <a href="{% url 'main:c-list'%}"><div>
+            <button type="button" class="explore"><span></span> Explore More &#10138;</button>
+        </div>
+        </a>
+    </div>
+</div>
+    {% endblock info %}
+   
+    {% block content %}
+    <div class="container">
+    <!-- dummy auction products -->
+    <div class="small-container">
+        <h1>COMPETITIONS</h1>
+        <h2 class="title"> <i> Current</i> <b> contest</b></h2>
+        <div class="row">
+            <div class="col-4">
+                <p class="price">$ 50.00</p>
+                <div class="cast">
+                <img src="{% static 'images/architecture-abstract.jpg' %}" alt="Beautiful Sunset | Ksh 500.00">
+                <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">Architectural Abstract</h4>    
+                <p style="color: #555; margin: 10px 0 10px;" >Industarial Design  &nbsp;&nbsp;&nbsp;&nbsp; 124 bids </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                </div>           
+            </div>
+            <div class="col-4">
+                <p class="price">$ 42.70</p>
+                <div class="cast">
+                    <img src="{% static 'images/interior-4333680_960_720.jpg' %}" alt="Face Painting | Ksh 500.00">
+                    <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">Livingroom
+                        Plan </h4>
+                    <p style="color: #555; margin: 10px 0 10px;">Interior Design &nbsp;&nbsp;&nbsp; 40 bids </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p class="price">$ 35.50</p>
+                <div class="cast">
+                <img src="{% static 'images/building-plan-354233_960_720.jpg' %}" alt="Building Plans | Ksh 500.00">
+                <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">Building Plans</h4>    
+                <p style="color: #555; margin: 10px 0 10px;" >Industrial Design &nbsp;&nbsp;&nbsp; 17 bids </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                </div>           
+            </div>
+             
+            <div class="col-4">
+                <p class="price">$ 42.70</p>
+                <div class="cast">
+                <img src="{% static 'images/kitchen-4588503_960_720.jpg' %}" alt="Graffiti Wall | Ksh 500.00">
+                <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">Kichen Design</h4>    
+                <p style="color: #555; margin: 10px 0 10px;" >Interior Design &nbsp;&nbsp;&nbsp; 4 bids </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+                </div>           
+            </div>
+            <div class="col-4">
+                <p class="price">$ 77.90</p>
+                <div class="cast">
+                    <img src="{% static 'images/architecture-2431986_960_720.jpg' %}" alt="Horses at Dawn | Ksh 500.00">
+                    <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">SkyScape Tower</h4>
+                    <p style="color: #555; margin: 10px 0 10px;">Landscape Design &nbsp;&nbsp;&nbsp; 4 bids </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p class="price">$ 15.00</p>
+                <div class="cast">
+                    <img src="{% static 'images/urban-design.jpg' %}" alt="Building Plans | $ 15.00">
+                    <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">Landscape Plan</h4>
+                    <p style="color: #555; margin: 10px 0 10px;">Industrial Architecture &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 bids </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p class="price">$ 75.00</p>
+                <div class="cast">
+                    <img src="{% static 'images/architecture-882562_960_720.jpg' %}" alt="Building Plans | Ksh 500.00">
+                    <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">City
+                        Building</h4>
+                    <p style="color: #555; margin: 10px 0 10px;">Urban Architecture &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 19 bids </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <p class="price">$ 310.00</p>
+                <div class="cast">
+                    <img src="{% static 'images/building-4042928_960_720.jpg' %}" alt="Building Plans | Ksh 500.00">
+                    <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;">Building
+                        Plan</h4>
+                    <p style="color: #555; margin: 10px 0 10px;">Urban Design &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 17 bids </p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+    {% endblock content %}
+    
+    <!-- how it works section  -->
+    {% block footer %}
+    <div class="how-t-works" style="margin-top: 5rem;" id="howitworks" #howitworks>
+        <h1>How?</h1>
+        <h2 class="title"> <i> How</i> <b> It Works</b></h2>
+        <div class="row">
+            <div class="card-htw">
+            <div class="col-3">
+                <div class="col-lg-3">
+                    <img src="{% static 'images/register.png' %}" alt="Register First">
+                    <i class="fa fa-chevron-circle-right"></i>
+                    <h2>Register</h2>
+                    <p> &#x203A;&#x203A;&nbsp;Create your account by clicking on sign-up.<br> 
+                        &#x203A;&#x203A;&nbsp;On the dropdown choose the account type.<br> 
+                        &#x203A;&#x203A;&nbsp;A box will appear  where you will be
+                        prompted to enter information such <br> as your name, email address and password.
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="card-htw">
+                <div class="col-lg-3">
+                    <img src="{% static 'images/buy-1.png'%}" alt="Buy / Bid"  style="margin-left: 3rem;">
+                    <i class="fa fa-chevron-circle-right"></i>
+                    <h2>Buy / Bid</h2>
+                    <p>&#x203A;&#x203A;&nbsp;Preview the product details. <br>
+                        &#x203A;&#x203A;&nbsp;Double check minimum ammout allowed to bid.<br>
+                        &#x203A;&#x203A;&nbsp;Set maximum ammount you're willing<br>
+                         to spend. <br>
+                        &#x203A;&#x203A;&nbsp; Register your bidders card.<br>
+                        &#x203A;&#x203A;&nbsp;Await for confirmation.
+                    </p>
+                </div>
+            </div>
+            <div class="card-htw">
+                <div class="col-lg-3">
+                    <img src="{% static 'images/submit-1.png'%}" alt="Submit a bid"  style="margin-left: 3rem;">
+                    <i class="fa fa-chevron-circle-right" ></i>
+                    <h2>Submit a bid</h2>
+                    <p>
+                        &#x203A;&#x203A;&nbsp;Preview bidding details and submit your bid. <br>
+                        &#x203A;&#x203A;&nbsp;View the highest bidder's ammount. <br>
+                        &#x203A;&#x203A;&nbsp;Incase you wish to change the bid, <br> click on change bid where you can choose to either drop 
+                        out or enter new bidding ammount.
+                    </p>
+                </div>
+            </div>
+            <div class="card-htw">
+                <div class="col-lg-3">
+                    <img src="{% static 'images/win-1.png' %}" alt="Win" style="margin-left: 3rem;">
+                    <i class="fa fa-chevron-circle-right" ></i>
+                    <h2 style="padding-left: 1rem;">Win</h2>
+                    <p style="padding-left: 1rem;">After bidding period is over, <br> you will get a status of wether <br> you won the bid. If you won, <br>
+                         you will be contacted for delivery <br> information.
+                    </p>
+                </div>
+                </div>
+        </div>
+</div>
+
+        {% endblock footer %}
+        <!-- About Us -->
+        {% block sidebar %}
+        <div class="about-us" style="margin-top: 10rem;" id="about" #about>
+            <h1>About?</h1>
+            <h2 class="title"> <i> About</i> <b> Us</b></h2>
+            <div class="row">
+                <div class="col-lg-2">
+                    <img src="{% static 'images/bg1-removebg-preview.png' %}" alt="About Us">
+                </div>
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-4">
+                         <img src="{% static 'images/support.png' %}" alt="Fast Support">
+                            <!-- <div><i class="fa fa-telegram" ></i></div> -->
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Fast Support</h3>
+                            <p style="line-height: 1.2rem; font-size: medium; color: #555; font-family: 'Nunito', sans-serif; text-align: center;">
+                                We are available anytime, anywhere for all the technical and non-technical support. <br>
+                                Call us through 07000000000 or email us at <a href="#">support@mail.com</a></p>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="{% static 'images/customers.png'%}" alt="Fast Support">
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Happy Customers</h3>
+                            <p
+                                style="line-height: 1.2rem; font-size: medium; color: #555; font-family: 'Nunito', sans-serif; text-align: center;">
+                                We strongly believe in serving our customers 
+                                effectively, efficiently and with utmost transparency. <br>
+                                Our Customers staisfication is our pririoty.</p>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <img src="{% static 'images/support-24.png' %}" alt="Fast Support">
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>27/7 Support</h3>
+                            <p
+                                style="line-height: 1.2rem; font-size: medium; color: #555; font-family: 'Nunito', sans-serif; text-align: center;">
+                                Our dedicated support team provides 24/7 support through emails, skype and online calls to our clients.</p>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            </div>
+
+
+<!-- Testimonials -->
+<div class="testimonials" style="margin-top: 10rem;">
+    <section class="review" id="review">
+    <h1>Testimonials</h1>
+    <h2 class="title"> <i> Happy</i> <b> Users</b></h2>
+
+    <div class="swiper-container review-slider">
+    
+        <div class="swiper-wrapper">
+    
+            <div class="swiper-slide">
+                <div class="box">
+                    <img src="{% static 'images/p1.jpg' %}" alt="">
+                    <h3>Karanja Maina</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa adipisci quisquam sunt nesciunt
+                        fugiat odit minus illum asperiores dolorum enim sint quod ipsam distinctio molestias
+                        consectetur
+                        ducimus beatae, reprehenderit exercitationem!</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+            </section>
+            </div>
+
+            <!-- register -->
+            <div style="margin-top: 10rem;">
+                <h3 style="color: black; text-align: center; font-weight: bold; font-size: 2rem;" >Create an account and start Buy, Bid or <br> Sell Now!</h3>
+                <button type="button"  onclick="location.href='login.html'"
+                style="color: #fff; background-color: #da6b1d; text-align: center; cursor: pointer; margin-left: 35rem;">
+                    Register</button>
+            </div>
+
+    </div>
+<!-- footer -->
+<section class="footer" style="margin-top: 5rem;">
+
+    <div class="box-container">
+
+        <div class="box" style="font-size: small;">
+            <h3>about us</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda quas magni pariatur est
+                accusantium
+                voluptas enim nemo facilis sit debitis.</p>
+        </div>
+        <div class="box">
+            <h3>branch locations</h3>
+            <a href="#">Kenya</a>
+            <a href="#">Europe</a>
+        </div>
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">home</a>
+            <a href="login.html">register</a>
+            <a href="login.html">login</a>
+            <a href="buyet.html">buy</a>
+            <a href="#">sell</a>
+            <a href="#howitworks">submit a bid</a>
+            <a href="#">contact</a>
+        </div>
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#">facebook</a>
+            <a href="#">instagram</a>
+            <a href="#">twitter</a>
+            <a href="#">linkedin</a>
+        </div>
+
+    </div>
+
+   
+
+</section>
+
+
+<!-- The swipper class  -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- The js script file -->
+<script src="script.js"></script>
+    </div>
+    </body>
+  
+
+    <!-- login container -->
+    <script>
+        var menu = document.getElementById("sub-menu-1");
+        function displayMenu(){
+            menu.style.display = "block";
+            menu.style.position = "absolute";
+            menu.style.marginTop = "15px";
+            menu.style.marginLeft = "-15px";
+            menu.style.marginBottom = "15px";
+        }
+    </script>
+    {% endblock sidebar %}
+</html>

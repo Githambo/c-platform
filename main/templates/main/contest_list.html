@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+
+{% block info %}
+{% endblock info %}
+
+{% block content %}
+  
+                
+     
+ <div class="container">
+  <a class="btn btn-primary" href="{% url 'admin:index' %}"><i
+                 class="fas fa-plus"></i>ADD CONTEST</a>
+
+ 	<div class="small-container">
+ 		<div class="row">
+
+ 		{% for prod in object_list %}
+
+ 			<div class="col-3">
+                
+                <div class="cast">
+                	
+	                <img src="{{prod.image.url}}">
+	                </a>
+	                <h4 style="color: black; font-size: larger; font-weight: 500; font-family: 'Quicksand', sans-serif;"><p>{{prod.title}}</p></h4>    
+	                <p style="color: #555; margin: 10px 0 10px;" ><a class="btn btn-warning" href="{% url 'main:c-detail' prod.id %}">submit contest  &nbsp;&nbsp;&nbsp;&nbsp; {{prod.subs}}bids</a> </p>
+	                
+                </div>           
+            </div>
+          {% endfor %}
+          </div>
+ 		
+ 	</div>
+ 	
+ </div>
+ 
+
+
+
+
+ {% endblock content %}
+
+ {% block footer %}
+{% endblock footer %}
+
+{% block sidebar %}
+{% endblock sidebar %}
