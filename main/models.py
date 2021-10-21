@@ -9,7 +9,7 @@ class Contest(models.Model):
 		('active','active'),
 		('closed','closed'),	)
 
-	title=models.CharField(max_length=20,unique=True)	
+	title=models.CharField(max_length=200,unique=True)	
 	image=models.ImageField(upload_to='contest_images',blank=True)	
 	description=models.TextField(max_length=1000)
 	date_of_posting=models.DateField(default=datetime.date.today)
