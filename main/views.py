@@ -24,7 +24,7 @@ class ContestDetail(DetailView):
 		context['submission']=Submission.objects.filter(contest=self.object).count()
 		return context
 
-class SubmitCreate(LoginRequiredMixin,CreateView,):
+class SubmitCreate(CreateView,):
 	form_class=SubmissionForm
 	template_name='main/subcreate.html'
 

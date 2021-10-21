@@ -16,7 +16,7 @@
 
 
 {%block content%}
-<div class="login-">
+<div class="small-container">
 	<div class="login-form">
 
 		<form method="POST" class="col-sm-6">
@@ -33,6 +33,7 @@
 </div>
 
 {%endblock content%}
+<a class="btn btn-success" href="{% url 'user:register' %}">Sign Up</a>
 
 
  {% block footer %}
