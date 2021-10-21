@@ -11,8 +11,9 @@
 {%block title%}
 {%endblock%}
 
-<div class="container">
+
 {%block content%}
+<div class="small-container">
 	<form method="POST" class=col-sm-s2>
 		{%csrf_token%}
 		{{form|crispy}}
@@ -22,9 +23,9 @@
 		</button>
 		
 	</form>
-		
+</div>		
 {%endblock%}
-</div>
+
 
  {% block footer %}
 {% endblock footer %}
